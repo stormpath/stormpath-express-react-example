@@ -1,8 +1,8 @@
 {
-  "name": "express-stormpath-react-example",
+  "name": "stormpath-express-react-example",
   "version": "0.1.0",
   "description": "A sample app demonstrating how to integrate Stormpath with React and Express.",
-  "homepage": "https://github.com/stormpath/express-stormpath-react-example",
+  "homepage": "https://github.com/stormpath/stormpath-express-react-example",
   "author": "Stormpath, Inc.",
   "license": "Apache-2.0",
   "dependencies": {
@@ -50,9 +50,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/stormpath/express-stormpath-react-example.git"
+    "url": "https://github.com/stormpath/stormpath-express-react-example.git"
   },
   "bugs": {
-    "url": "https://github.com/stormpath/express-stormpath-react-example/issues"
+    "url": "https://github.com/stormpath/stormpath-express-react-example/issues"
   }
 }
