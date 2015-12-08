@@ -6,21 +6,22 @@
   "author": "Stormpath, Inc.",
   "license": "Apache-2.0",
   "dependencies": {
-    "babel-loader": "^5.0.0",
-    "babel-plugin-react-transform": "^1.0.1",
-    "babel-runtime": "^5.1.10",
+    "babel-loader": "^6.2.0",
+    "babel-plugin-react-transform": "^1.1.1",
+    "babel-runtime": "^6.3.13",
     "express": "^4.13.3",
-    "express-stormpath": "^2.2.0",
+    "express-stormpath": "^2.3.2",
+    "globals": "^8.14.0",
     "morgan": "^1.6.1",
-    "react": "^0.14.2",
-    "react-document-title": "^1.0.0",
-    "react-dom": "^0.14.2",
+    "react": "^0.14.3",
+    "react-document-title": "^2.0.1",
+    "react-dom": "^0.14.3",
     "react-router": "^1.0.2",
-    "react-stormpath": "0.1.0",
-    "webpack": "^1.8.4"
+    "react-stormpath": "0.2.0",
+    "webpack": "^1.12.9"
   },
   "devDependencies": {
-    "webpack-dev-middleware": "^1.2.0"
+    "webpack-dev-middleware": "^1.4.0"
   },
   "scripts": {
     "start": "node server.js"
