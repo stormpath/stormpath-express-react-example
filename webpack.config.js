@@ -4,19 +4,14 @@ var webpack = require('webpack');
 
 module.exports = {
   entry: [
-    './src/index',
-    'webpack-hot-middleware/client'
+    './src/index'
   ],
   devtool: 'eval-source-map',
   output: {
     path: __dirname,
-    filename: 'bundle.js',
+    filename: 'app.js',
     publicPath: '/js/'
   },
-  plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
-  ],
   module: {
     loaders: [{
       test: /\.js$/,
