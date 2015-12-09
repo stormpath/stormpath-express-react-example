@@ -5,11 +5,11 @@ import DocumentTitle from 'react-document-title';
 import Header from './Header';
 import { LoginLink } from 'react-stormpath';
 
-export default class App extends React.Component {
+export default class MasterPage extends React.Component {
   render() {
     return (
-      <DocumentTitle title='Stormpath React+Flux Example'>
-        <div className='App'>
+      <DocumentTitle title='Stormpath Express + React Example'>
+        <div className='MasterPage'>
           <Header />
           { this.props.children }
         </div>

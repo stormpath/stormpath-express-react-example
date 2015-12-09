@@ -1,4 +1,4 @@
-export App from './App'
+export MasterPage from './MasterPage'
 export IndexPage from './IndexPage'
 export LoginPage from './LoginPage'
 export RegisterPage from './RegisterPage'

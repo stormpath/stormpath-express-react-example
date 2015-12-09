@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { IndexRoute, Route } from 'react-router';
 import createBrowserHistory from 'history/lib/createBrowserHistory';
 import StormpathReact, { Router, LoginRoute, LogoutRoute, AuthenticatedRoute } from 'react-stormpath';
-import { App, IndexPage, LoginPage, RegisterPage, ResetPasswordPage, VerifyEmailPage, ProfilePage } from './pages';
+import { MasterPage, IndexPage, LoginPage, RegisterPage, ResetPasswordPage, VerifyEmailPage, ProfilePage } from './pages';
 
 StormpathReact.init({
   endpoints: {
@@ -19,7 +19,7 @@ StormpathReact.init({
 
 ReactDOM.render(
   <Router history={createBrowserHistory()}>
-  	<Route path='/' component={App}>
+  	<Route path='/' component={MasterPage}>
       <IndexRoute component={IndexPage} />
       <LoginRoute path='/login' continueTo='/profile' component={LoginPage} />
       <LogoutRoute path='/logout' />
