@@ -1,6 +1,5 @@
+import React from 'react';
 import { Link } from 'react-router';
-import React, { PropTypes } from 'react';
-import DocumentTitle from 'react-document-title';
 
 import { LoginLink, LogoutLink, NotAuthenticated, Authenticated } from 'react-stormpath';
 

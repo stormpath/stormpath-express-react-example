@@ -2,7 +2,7 @@ import { Link } from 'react-router';
 import React, { PropTypes } from 'react';
 import DocumentTitle from 'react-document-title';
 
-import { HomeLink, LoginLink } from 'react-stormpath';
+import { LoginLink } from 'react-stormpath';
 
 export default class IndexPage extends React.Component {
   render() {
@@ -19,7 +19,7 @@ export default class IndexPage extends React.Component {
             <li><Link to="/register">Registration</Link></li>
             <li><LoginLink /></li>
             <li><Link to="/forgot">Forgot Password</Link></li>
-            <li><HomeLink>Custom Profile Data</HomeLink></li>
+            <li><Link to="/profile">Custom Profile Data</Link></li>
           </ol>
         </div>
       </div>

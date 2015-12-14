@@ -1,27 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { IndexRoute, Route } from 'react-router';
-import createBrowserHistory from 'history/lib/createBrowserHistory';
-import StormpathReact, { Router, LoginRoute, LogoutRoute, AuthenticatedRoute } from 'react-stormpath';
+import createHashHistory from 'history/lib/createHashHistory';
+import ReactStormpath, { Router, LoginRoute, LogoutRoute, AuthenticatedRoute } from 'react-stormpath';
 import { MasterPage, IndexPage, LoginPage, RegisterPage, ResetPasswordPage, VerifyEmailPage, ProfilePage } from './pages';
 
-StormpathReact.init({
-  endpoints: {
-    me: '/api/me',
-    login: '/api/login',
-    register: '/api/register',
-    verifyEmail: '/api/verify',
-    forgotPassword: '/api/forgot',
-    changePassword: '/api/change',
-    logout: '/api/logout'
-  }
-});
+ReactStormpath.init();
 
 ReactDOM.render(
-  <Router history={createBrowserHistory()}>
+  <Router history={createHashHistory({ queryKey: false })}>
   	<Route path='/' component={MasterPage}>
       <IndexRoute component={IndexPage} />
-      <LoginRoute path='/login' continueTo='/profile' component={LoginPage} />
+      <LoginRoute path='/login' component={LoginPage} />
       <LogoutRoute path='/logout' />
       <Route path='/verify' component={VerifyEmailPage} />
       <Route path='/register' component={RegisterPage} />

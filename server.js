@@ -15,45 +15,12 @@ app.use(require('webpack-dev-middleware')(compiler, {
   publicPath: config.output.publicPath
 }));
 
-app.get('/css/style.css', function (req, res) {
-  res.sendFile(path.join(__dirname, 'build/css/style.css'));
-});
-
 app.get('/css/bootstrap.min.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'build/css/bootstrap.min.css'));
 });
 
 stormpath.init(app, {
-  web: {
-    me: {
-      enabled: true,
-      uri: '/api/me'
-    },
-    register: {
-      enabled: true,
-      uri: '/api/register'
-    },
-    login: {
-      enabled: true,
-      uri: '/api/login'
-    },
-    logout: {
-      enabled: true,
-      uri: '/api/logout'
-    },
-    forgotPassword: {
-      enabled: true,
-      uri: '/api/forgot'
-    },
-    changePassword: {
-      enabled: true,
-      uri: '/api/change'
-    },
-    verifyEmail: {
-      enabled: true,
-      uri: '/api/verify'
-    }
-  }
+  website: true
 });
 
 app.get('*', function (req, res) {

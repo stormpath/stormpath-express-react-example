@@ -16,13 +16,13 @@
     "express": "^4.13.3",
     "express-stormpath": "^2.3.2",
     "globals": "^8.14.0",
-    "history": "^1.15.x",
+    "history": "1.13.1",
     "morgan": "^1.6.1",
     "react": "^0.14.3",
     "react-document-title": "^2.0.1",
     "react-dom": "^0.14.3",
     "react-router": "^1.0.2",
-    "react-stormpath": "0.2.0",
+    "react-stormpath": "0.3.0",
     "webpack": "^1.12.9"
   },
   "devDependencies": {
