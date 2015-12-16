@@ -20,7 +20,10 @@ app.get('/css/bootstrap.min.css', function (req, res) {
 });
 
 stormpath.init(app, {
-  website: true
+  website: true,
+  web: {
+    spaRoot: path.join(__dirname, 'build/index.html')
+  }
 });
 
 app.get('*', function (req, res) {
