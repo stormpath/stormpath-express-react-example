@@ -1,7 +1,7 @@
 import React from 'react';
 import DocumentTitle from 'react-document-title';
 
-import { RegistrationForm } from 'react-stormpath';
+import { RegistrationForm, LoginLink } from 'react-stormpath';
 
 export default class RegisterPage extends React.Component {
   render() {

@@ -14,7 +14,7 @@ export default class LoginPage extends React.Component {
               <hr />
             </div>
           </div>
-          <LoginForm redirectTo="/profile" />
+          <LoginForm />
         </div>
       </DocumentTitle>
     );
