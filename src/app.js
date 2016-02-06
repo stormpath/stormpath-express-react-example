@@ -9,7 +9,7 @@ ReactStormpath.init();
 
 ReactDOM.render(
   <Router history={createBrowserHistory()}>
-  	<HomeRoute path='/' component={MasterPage}>
+    <HomeRoute path='/' component={MasterPage}>
       <IndexRoute component={IndexPage} />
       <LoginRoute path='/login' component={LoginPage} />
       <LogoutRoute path='/logout' />
@@ -19,7 +19,7 @@ ReactDOM.render(
       <AuthenticatedRoute>
         <HomeRoute path='/profile' component={ProfilePage} />
       </AuthenticatedRoute>
-  	</HomeRoute>
+    </HomeRoute>
   </Router>,
   document.getElementById('app-container')
 );
