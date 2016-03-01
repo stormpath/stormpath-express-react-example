@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { IndexRoute, Route } from 'react-router';
 import createBrowserHistory from 'history/lib/createBrowserHistory';
-import ReactStormpath, { Router, HomeRoute, LoginRoute, LogoutRoute, AuthenticatedRoute } from 'react-stormpath';
+import ReactStormpath, { Router, HomeRoute, LoginRoute, AuthenticatedRoute } from 'react-stormpath';
 import { MasterPage, IndexPage, LoginPage, RegisterPage, ResetPasswordPage, VerifyEmailPage, ProfilePage } from './pages';
 
 ReactStormpath.init();
@@ -12,7 +12,6 @@ ReactDOM.render(
     <HomeRoute path='/' component={MasterPage}>
       <IndexRoute component={IndexPage} />
       <LoginRoute path='/login' component={LoginPage} />
-      <LogoutRoute path='/logout' />
       <Route path='/verify' component={VerifyEmailPage} />
       <Route path='/register' component={RegisterPage} />
       <Route path='/forgot' component={ResetPasswordPage} />
