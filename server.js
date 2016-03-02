@@ -20,7 +20,9 @@ app.get('/css/bootstrap.min.css', function (req, res) {
 });
 
 app.use(stormpath.init(app, {
-  produces: ['application/json']
+  web: {
+    produces: ['application/json']
+  }
 }));
 
 app.get('*', function (req, res) {
