@@ -19,12 +19,9 @@ app.get('/css/bootstrap.min.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'build/css/bootstrap.min.css'));
 });
 
-stormpath.init(app, {
-  website: true,
-  web: {
-    spaRoot: path.join(__dirname, 'build/index.html')
-  }
-});
+app.use(stormpath.init(app, {
+  produces: ['application/json']
+}));
 
 app.get('*', function (req, res) {
   res.sendFile(path.join(__dirname, 'build/index.html'));
