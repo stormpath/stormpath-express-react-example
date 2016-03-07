@@ -15,9 +15,7 @@ app.use(require('webpack-dev-middleware')(compiler, {
   publicPath: config.output.publicPath
 }));
 
-app.get('/css/bootstrap.min.css', function (req, res) {
-  res.sendFile(path.join(__dirname, 'build/css/bootstrap.min.css'));
-});
+app.use('/', express.static('build/'));
 
 app.use(stormpath.init(app, {
   web: {
@@ -29,15 +27,11 @@ app.get('*', function (req, res) {
   res.sendFile(path.join(__dirname, 'build/index.html'));
 });
 
-app.on('stormpath.ready', function () {
-  console.log('Stormpath Ready');
-    
-  app.listen(3000, 'localhost', function (err) {
-    if (err) {
-      console.log(err);
-      return;
-    }
+app.listen(3000, 'localhost', function (err) {
+  if (err) {
+    console.log(err);
+    return;
+  }
 
-    console.log('Listening at http://localhost:3000');
-  });
+  console.log('Listening at http://localhost:3000');
 });
