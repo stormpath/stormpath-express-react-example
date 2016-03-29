@@ -1,11 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { createStore } from 'redux';
 import { IndexRoute, Route } from 'react-router';
 import createBrowserHistory from 'history/lib/createBrowserHistory';
 import ReactStormpath, { Router, HomeRoute, LoginRoute, AuthenticatedRoute } from 'react-stormpath';
 import { MasterPage, IndexPage, LoginPage, RegisterPage, ResetPasswordPage, VerifyEmailPage, ProfilePage } from './pages';
 
-ReactStormpath.init();
+function myApp(state = {}, action) {
+  switch (action.type) {
+    case 'USER_SET':
+      return Object.assign({}, state, {
+        user: action.data
+      });
+  }
+
+  return state;
+}
+
+ReactStormpath.init({
+  dispatcher: {
+    type: 'redux',
+    store: createStore(myApp)
+  }
+});
 
 ReactDOM.render(
   <Router history={createBrowserHistory()}>
