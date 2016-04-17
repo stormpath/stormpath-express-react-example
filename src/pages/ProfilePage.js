@@ -5,7 +5,7 @@ import { UserProfileForm } from 'react-stormpath';
 export default class ProfilePage extends React.Component {  
   render() {
     return (
-      <DocumentTitle title={`My Profile`}>
+      <DocumentTitle title={`View/Update My Profile`}>
       <div className="container">
           <div className="row">
             <div className="col-xs-12">
