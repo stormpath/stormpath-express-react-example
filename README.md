@@ -26,7 +26,7 @@ place the configuration below in the file:
 
 ```yaml
 client:
-  apiKey:
+  apiKey: <-- CREATE YOUR API KEYS USING THE "DEVELOPER TOOLS" IN YOUR STORMPATH ACCOUNT
     id: YOUR_API_KEY_ID
     secret: YOUR_API_KEY_SECRET
 application:
