@@ -19,7 +19,7 @@ export default class IndexPage extends React.Component {
             <li><Link to="/register">Registration</Link></li>
             <li><LoginLink /></li>
             <li><Link to="/forgot">Forgot Password</Link></li>
-            <li><Link to="/profile">Custom Profile Data</Link></li>
+            <li><Link to="/profile">View/Update Custom Profile Data (you need to log in first)</Link></li>
           </ol>
         </div>
       </div>
