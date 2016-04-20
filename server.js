@@ -1,4 +1,5 @@
 var stormpath = require('express-stormpath');
+var bodyParser = require('body-parser');
 var morgan = require('morgan');
 var path = require('path');
 var express = require('express');
@@ -31,12 +32,12 @@ app.post('/me', bodyParser.json(), stormpath.loginRequired, function (req, res) 
     res.json({ message: message, status: 400 });
     res.end();
   }
-  
+
   function saveAccount () {
     req.user.givenName = req.body.givenName;
     req.user.surname = req.body.surname;
     req.user.email = req.body.email;
-    
+
     req.user.save(function (err) {
       if (err) {
         return writeError(err.userMessage || err.message);
@@ -47,7 +48,7 @@ app.post('/me', bodyParser.json(), stormpath.loginRequired, function (req, res) 
 
   if (req.body.password) {
     var application = req.app.get('stormpathApplication');
-    
+
     application.authenticateAccount({
       username: req.user.username,
       password: req.body.existingPassword
@@ -55,9 +56,9 @@ app.post('/me', bodyParser.json(), stormpath.loginRequired, function (req, res) 
       if (err) {
         return writeError('The existing password that you entered was incorrect.');
       }
-      
+
       req.user.password = req.body.password;
-      
+
       saveAccount();
     });
   } else {
@@ -71,7 +72,7 @@ app.get('*', function (req, res) {
 
 app.on('stormpath.ready', function () {
   console.log('Stormpath Ready');
-    
+
   app.listen(3000, 'localhost', function (err) {
     if (err) {
       console.log(err);
