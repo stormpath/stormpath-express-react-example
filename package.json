@@ -23,7 +23,7 @@
     "react-document-title": "^2.0.1",
     "react-dom": "^15.0.2",
     "react-router": "^2.4.0",
-    "react-stormpath": "^1.1.2",
+    "react-stormpath": "^1.2.0",
     "webpack": "^1.13.0"
   },
   "devDependencies": {
