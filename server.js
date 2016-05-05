@@ -33,7 +33,7 @@ app.post('/me', bodyParser.json(), stormpath.loginRequired, function (req, res) 
     res.end();
   }
 
-  function saveAccount () {
+  function saveAccount() {
     req.user.givenName = req.body.givenName;
     req.user.surname = req.body.surname;
     req.user.email = req.body.email;
