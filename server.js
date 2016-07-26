@@ -22,7 +22,10 @@ app.get('/css/bootstrap.min.css', function (req, res) {
 
 app.use(stormpath.init(app, {
   web: {
-    produces: ['application/json']
+    produces: ['application/json'],
+    login: {
+      nextUri: '/profile'
+    }
   }
 }));
 
