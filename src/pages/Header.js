@@ -4,7 +4,13 @@ import { Link } from 'react-router';
 import { LoginLink, LogoutLink, NotAuthenticated, Authenticated } from 'react-stormpath';
 
 export default class Header extends React.Component {
+  static contextTypes = {
+    user: React.PropTypes.object
+  };
+
   render() {
+    let user = this.context.user;
+
     return (
       <nav className="navbar navbar-default navbar-static-top">
         <div className="container">
@@ -31,7 +37,7 @@ export default class Header extends React.Component {
               </NotAuthenticated>
               <Authenticated>
                 <li>
-                  <LogoutLink />
+                  <LogoutLink redirectTo={'/goodbye/' + (user ? encodeURIComponent(user.username) : '')} />
                 </li>
               </Authenticated>
               <NotAuthenticated>
