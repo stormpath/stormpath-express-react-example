@@ -1,3 +1,4 @@
+export ChangePasswordPage from './ChangePasswordPage'
 export MasterPage from './MasterPage'
 export IndexPage from './IndexPage'
 export LoginPage from './LoginPage'
