@@ -21,7 +21,7 @@ $ npm install
 
 ## 3. Gather Stormpath Configuration
 
-You'll need to [Download an API Key Pair](https://docs.stormpath.com/rest/product-guide/latest/quickstart.html#create-an-api-key-pair) from the Stormpath Admin Console, and find the **Application Href** (also called **REST URL**) of the Application that you will use for your project. The default application is called "My Application" and you can use that to get started.
+You'll need to [Download an API Key Pair](https://docs.stormpath.com/rest/product-guide/latest/quickstart.html#create-an-api-key-pair) from the [Stormpath Admin Console][], and find the **Application Href** (also called **REST URL**) of the Application that you will use for your project. The default application is called "My Application" and you can use that to get started.
 
 ## 4. Provide Configuration To Your Application
 
@@ -72,13 +72,9 @@ Application running at http://localhost:3000
 
 The application should now be running in your browser at [http://localhost:3000](http://localhost:3000).
 
-You can get your API Keys and Application HREF from the
-[Stormpath Admin Console][].
-
 ## Support
 
-We're here to help if you get stuck.  There are several ways that you an get in
-touch with a member of our team:
+We're here to help if you get stuck.  There are several ways that you can get in touch with a member of our team:
 
 * Send an email to [support@stormpath.com](mailto:support@stormpath.com)
 * Open a Github Issue on this repository.
