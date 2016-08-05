@@ -19,6 +19,7 @@
     "globals": "^9.9.0",
     "history": "^3.0.0",
     "morgan": "^1.7.0",
+    "ora": "^0.3.0",
     "react": "^15.2.1",
     "react-document-title": "^2.0.2",
     "react-dom": "^15.2.1",
