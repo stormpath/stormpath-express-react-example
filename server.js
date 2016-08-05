@@ -7,7 +7,7 @@ var webpack = require('webpack');
 var config = require('./webpack.config');
 var ora = require('ora');
 
-var PORT = process.env.PORT || 3000;
+var port = process.env.PORT || 3000;
 
 var app = express();
 var compiler = webpack(config);
@@ -35,7 +35,7 @@ app.get('/css/bootstrap.min.css', function (req, res) {
 
 app.use(stormpath.init(app, {
   // Disable logging until startup, so that we can catch errors
-  // and display them nicely
+  // and display them nicely.
   debug: 'none',
   web: {
     produces: ['application/json'],
@@ -89,21 +89,19 @@ app.get('*', function (req, res) {
   res.sendFile(path.join(__dirname, 'build/index.html'));
 });
 
-spinner.text = 'Starting Dev Sever on port ' + PORT,
+spinner.text = 'Starting Dev Sever on port ' + port,
 spinner.start();
 
-app.listen(PORT, function () {
+app.listen(port, function () {
   spinner.succeed();
   spinner.text = 'Initializing Stormpath';
   spinner.start();
   app.on('stormpath.ready', function () {
     spinner.succeed();
-    console.log('\nListening at http://localhost:' + PORT);
-    // Now bring back error logging
+    console.log('\nListening at http://localhost:' + port);
+    // Now bring back error logging.
     app.get('stormpathLogger').transports.console.level = 'error';
   });
 }).on('error', failAndExit);
-
-
 
 app.on('stormpath.error', failAndExit);
