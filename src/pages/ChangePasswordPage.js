@@ -1,10 +1,11 @@
 import React from 'react';
 import DocumentTitle from 'react-document-title';
-
 import { ChangePasswordForm } from 'react-stormpath';
 
 export default class ChangePasswordPage extends React.Component {
   render() {
+    let query = this.props.location.query;
+
     return (
       <DocumentTitle title={`Change Password`}>
         <div className="container">
@@ -14,8 +15,11 @@ export default class ChangePasswordPage extends React.Component {
               <hr />
             </div>
           </div>
-
-          <ChangePasswordForm spToken={this.props.location.query.sptoken} style={{backgroundColor: 'pink'}}/>
+          <div className="row">
+            <div className="col-xs-12">
+              <ChangePasswordForm spToken={query.sptoken} />
+            </div>
+          </div>
         </div>
       </DocumentTitle>
     );
