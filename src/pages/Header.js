@@ -35,11 +35,9 @@ export default class Header extends React.Component {
                   <LoginLink />
                 </li>
               </NotAuthenticated>
-              <Authenticated>
-                <li>
-                  <LogoutLink redirectTo={'/goodbye/' + (user ? encodeURIComponent(user.username) : '')} />
-                </li>
-              </Authenticated>
+              <li>
+                <LogoutLink redirectTo={'/goodbye/' + (user ? encodeURIComponent(user.username) : '')} />
+              </li>
               <NotAuthenticated>
                 <li>
                   <Link to="/register">Create Account</Link>
