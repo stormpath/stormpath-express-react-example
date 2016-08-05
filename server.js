@@ -92,6 +92,9 @@ app.get('*', function (req, res) {
 spinner.text = 'Starting Dev Sever on port ' + port,
 spinner.start();
 
+app.on('error', failAndExit);
+app.on('stormpath.error', failAndExit);
+
 app.listen(port, function () {
   spinner.succeed();
   spinner.text = 'Initializing Stormpath';
@@ -102,6 +105,4 @@ app.listen(port, function () {
     // Now bring back error logging.
     app.get('stormpathLogger').transports.console.level = 'error';
   });
-}).on('error', failAndExit);
-
-app.on('stormpath.error', failAndExit);
+});
