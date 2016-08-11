@@ -46,6 +46,18 @@ app.use(stormpath.init(app, {
       expand: {
         customData: true
       }
+    },
+    register: {
+      form: {
+        fields: {
+          color: {
+            enabled: true,
+            label: 'Color',
+            placeholder: 'E.g. blue',
+            type: 'text'
+          }
+        }
+      }
     }
   }
 }));
