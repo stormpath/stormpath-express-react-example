@@ -3,6 +3,21 @@ import DocumentTitle from 'react-document-title';
 
 import { RegistrationForm, LoginLink } from 'react-stormpath';
 
+class Field extends React.Component {
+  render() {
+    return (
+      <div>
+        <label>{this.props.label}</label>
+        <input
+          type={this.props.type}
+          name={this.props.name}
+          onChange={this.props.onChange}
+          defaultValue={this.props.defaultValue} />
+      </div>
+    );
+  }
+}
+
 export default class RegisterPage extends React.Component {
   render() {
     return (
