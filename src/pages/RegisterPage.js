@@ -14,7 +14,21 @@ export default class RegisterPage extends React.Component {
               <hr />
             </div>
           </div>
-          <RegistrationForm />
+          <RegistrationForm>
+            <div>
+              <label>First Name</label>
+              <input type="text" name="givenName" />
+            </div>
+            <div>
+              <label>Custom name</label>
+              <input type="text" name="customData.name" />
+            </div>
+            <div data-spIf="form.error">
+              <strong>Error:</strong><br />
+              <span data-spBind="form.errorMessage" />
+            </div>
+            <input type="submit" />
+          </RegistrationForm>
         </div>
       </DocumentTitle>
     );
