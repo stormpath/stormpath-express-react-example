@@ -37,6 +37,11 @@ app.use(stormpath.init(app, {
   debug: 'none',
   web: {
     produces: ['application/json']
+    me: {
+      expand: {
+        customData: true
+      }
+    }
   }
 }));
 
@@ -51,6 +56,10 @@ app.post('/me', bodyParser.json(), stormpath.loginRequired, function (req, res) 
     req.user.givenName = req.body.givenName;
     req.user.surname = req.body.surname;
     req.user.email = req.body.email;
+
+    if ('color' in req.body.customData) {
+      req.user.customData.color = req.body.customData.color;
+    }
 
     req.user.save(function (err) {
       if (err) {
