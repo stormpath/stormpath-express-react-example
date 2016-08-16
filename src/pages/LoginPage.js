@@ -4,6 +4,16 @@ import DocumentTitle from 'react-document-title';
 import { LoginForm } from 'react-stormpath';
 
 export default class LoginPage extends React.Component {
+  onSubmitError(e, next) {
+    console.log('onSubmitError()', e);
+    next();
+  }
+
+  onSubmitSuccess(e, next) {
+    console.log('onSubmitSuccess()', e);
+    setTimeout(next, 1000 * 3);
+  }
+
   render() {
     return (
       <DocumentTitle title={`Login`}>
@@ -14,7 +24,9 @@ export default class LoginPage extends React.Component {
               <hr />
             </div>
           </div>
-          <LoginForm />
+          <LoginForm
+            onSubmitError={this.onSubmitError.bind(this)}
+            onSubmitSuccess={this.onSubmitSuccess.bind(this)} />
         </div>
       </DocumentTitle>
     );
