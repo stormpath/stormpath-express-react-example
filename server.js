@@ -36,7 +36,7 @@ app.use(stormpath.init(app, {
   // and display them nicely.
   debug: 'none',
   web: {
-    produces: ['application/json']
+    produces: ['application/json'],
     me: {
       expand: {
         customData: true
