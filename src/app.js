@@ -16,7 +16,7 @@ ReactDOM.render(
       <Route path='/change' component={ChangePasswordPage} />
       <Route path='/forgot' component={ResetPasswordPage} />
       <AuthenticatedRoute>
-        <HomeRoute path='/profile' component={ProfilePage} />
+        <Route path='/profile' component={ProfilePage} />
       </AuthenticatedRoute>
     </HomeRoute>
   </Router>,
