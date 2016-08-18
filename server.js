@@ -29,19 +29,14 @@ app.use(require('webpack-dev-middleware')(compiler, {
   publicPath: config.output.publicPath
 }));
 
-app.get('/css/bootstrap.min.css', function (req, res) {
-  res.sendFile(path.join(__dirname, 'build/css/bootstrap.min.css'));
-});
+app.use('/css', express.static(__dirname + '/build/css'));
 
 app.use(stormpath.init(app, {
   // Disable logging until startup, so that we can catch errors
   // and display them nicely.
   debug: 'none',
   web: {
-    produces: ['application/json'],
-    login: {
-      nextUri: '/profile'
-    }
+    produces: ['application/json']
   }
 }));
 
