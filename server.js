@@ -36,7 +36,24 @@ app.use(stormpath.init(app, {
   // and display them nicely.
   debug: 'none',
   web: {
-    produces: ['application/json']
+    produces: ['application/json'],
+    me: {
+      expand: {
+        customData: true
+      }
+    },
+    register: {
+      form: {
+        fields: {
+          color: {
+            enabled: true,
+            label: 'Color',
+            placeholder: 'E.g. blue',
+            type: 'text'
+          }
+        }
+      }
+    }
   }
 }));
 
@@ -51,6 +68,10 @@ app.post('/me', bodyParser.json(), stormpath.loginRequired, function (req, res) 
     req.user.givenName = req.body.givenName;
     req.user.surname = req.body.surname;
     req.user.email = req.body.email;
+
+    if ('color' in req.body.customData) {
+      req.user.customData.color = req.body.customData.color;
+    }
 
     req.user.save(function (err) {
       if (err) {
