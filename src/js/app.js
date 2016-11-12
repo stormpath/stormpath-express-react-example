@@ -4,7 +4,11 @@ import { IndexRoute, Route, browserHistory } from 'react-router';
 import ReactStormpath, { Router, HomeRoute, LoginRoute, AuthenticatedRoute } from 'react-stormpath';
 import { ChangePasswordPage, MasterPage, IndexPage, LoginPage, RegisterPage, ResetPasswordPage, VerifyEmailPage, ProfilePage } from './pages';
 
-ReactStormpath.init();
+ReactStormpath.init({
+  clientApi: {
+    uri: 'https://oval-summer.apps.dev.stormpath.io'
+  }
+});
 
 ReactDOM.render(
   <Router history={browserHistory}>
