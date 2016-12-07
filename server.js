@@ -18,7 +18,7 @@ var spinner = ora({
 
 function failAndExit(err) {
   spinner.fail();
-  console.error(err.stack);
+  console.error(err.stack || err.message || err);
   process.exit(1);
 }
 
@@ -35,6 +35,15 @@ app.use(stormpath.init(app, {
   // Disable logging until startup, so that we can catch errors
   // and display them nicely.
   debug: 'none',
+  client: {
+    apiKey: {
+      id: '6BZWD2FW5BK0A9CFMQQY528WK',
+      secret: 'oiMXMm1pkJoEG/VpPZnDDwoqxcQcN0JqTHydIpZSGdo'
+    },
+  },
+  application: {
+    href: 'https://api.stormpath.com/v1/applications/5MNUu5eAdO4e9K7pd9xlfu'
+  },
   web: {
     produces: ['application/json'],
     me: {
@@ -105,7 +114,7 @@ app.get('*', function (req, res) {
   res.sendFile(path.join(__dirname, 'src/html/index.html'));
 });
 
-spinner.text = 'Starting Dev Sever on port ' + port,
+spinner.text = 'Starting Dev Sever on port ' + port;
 spinner.start();
 
 app.on('error', failAndExit);
