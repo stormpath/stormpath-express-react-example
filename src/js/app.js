@@ -6,7 +6,7 @@ import { ChangePasswordPage, MasterPage, IndexPage, LoginPage, RegisterPage, Res
 
 ReactStormpath.init({
   endpoints: {
-    baseUri: 'https://oval-summer.apps.dev.stormpath.io'
+    baseUri: 'https://lawful-heron.apps.stormpath.io'
   }
 });
 

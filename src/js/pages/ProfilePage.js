@@ -1,8 +1,26 @@
 import React from 'react';
 import DocumentTitle from 'react-document-title';
-import { UserProfileForm } from 'react-stormpath';
+import ReactStormpath, { UserProfileForm } from 'react-stormpath';
 
 export default class ProfilePage extends React.Component {
+  state = {
+    accessToken: null
+  };
+
+  componentDidMount() {
+    ReactStormpath.getAccessToken().then((accessToken) => {
+      console.log('Got result!', accessToken);
+      this.setState({
+        accessToken: accessToken
+      })
+    }).catch((err) => {
+      console.log('Got error!', err);
+      this.setState({
+        accessToken: null
+      });
+    });
+  }
+
   render() {
     return (
       <DocumentTitle title={`My Profile`}>
@@ -15,6 +33,7 @@ export default class ProfilePage extends React.Component {
           </div>
           <div className="row">
             <div className="col-xs-12">
+              <div>Your access token: {this.state.accessToken}.</div>
               <UserProfileForm>
                 <div className='sp-update-profile-form'>
                   <div className="row">
