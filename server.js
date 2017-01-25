@@ -1,11 +1,12 @@
-var stormpath = require('express-stormpath');
 var bodyParser = require('body-parser');
-var morgan = require('morgan');
-var path = require('path');
 var express = require('express');
-var webpack = require('webpack');
-var config = require('./webpack.config');
+var morgan = require('morgan');
 var ora = require('ora');
+var path = require('path');
+var stormpath = require('express-stormpath');
+var webpack = require('webpack');
+
+var config = require('./webpack.config');
 
 var port = process.env.PORT || 3000;
 
@@ -36,6 +37,10 @@ app.use(stormpath.init(app, {
   // and display them nicely.
   debug: 'none',
   web: {
+
+    // The produces option disables the default HTML views, which
+    // we want for our single-page react app.
+
     produces: ['application/json'],
     me: {
       expand: {
@@ -57,7 +62,7 @@ app.use(stormpath.init(app, {
   }
 }));
 
-app.post('/me', bodyParser.json(), stormpath.loginRequired, function (req, res) {
+app.post('/me', stormpath.authenticationRequired, bodyParser.json(), function (req, res) {
   function writeError(message) {
     res.status(400);
     res.json({ message: message, status: 400 });
